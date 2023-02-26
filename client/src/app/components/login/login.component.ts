@@ -9,13 +9,9 @@ import { LoginAction } from './login.actions';
 export class LoginComponent {
   constructor(private loginAction: LoginAction) {}
   
-  public onLogin() {
+  public async onLogin() {
     const username = (document.getElementById('username') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
-    this.loginAction.login(username, password).subscribe(
-      response => console.log(response),
-      error => console.error(error)
-    );
+    return await this.loginAction.login(username, password)
   }
-  
 }
