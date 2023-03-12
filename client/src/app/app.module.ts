@@ -9,7 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { LandingComponent } from './components/landing/landing.component'
 import { LoginAction } from './components/login/login.actions';
-import { CreateUserComponent } from './components/create-user/create-user.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SignupAction } from './components/signup/signup.actions';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     FooterComponent,
     LoginComponent,
     LandingComponent,
-    CreateUserComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     HttpClientModule
   ],
   providers: [
+    SignupAction,
     LoginAction,
     HttpClient
   ],

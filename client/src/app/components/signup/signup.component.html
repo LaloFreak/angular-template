@@ -1,15 +1,19 @@
-<div class="loginCont"> 
-  <h2>Log In</h2>
-  <form (submit)="onLogin()">  
+<div class="signupCont"> 
+  <h2>Sign up</h2>
+  <form (submit)="onSignup()">  
     <div>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" placeholder="example: Donwea">
     </div>
     <div>
+      <label for="password">Email:</label>
+      <input type="email" id="email" name="email" placeholder="example@mail.tkm">
+    </div>
+    <div>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password">
     </div>
-    <button type="submit">Log in</button>
+    <button type="submit">Sign up</button>
   </form>
   <button type="submit"><a routerLink="/">Back</a></button>
 </div> 
