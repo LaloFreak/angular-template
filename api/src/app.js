@@ -1,9 +1,10 @@
 require("dotenv").config();
 const morgan = require('morgan');
-const express = require('express');
-const server = express();
-
-const routes = require('./routes/index.js');
+const feathers = require('@feathersjs/feathers')
+const express = require('@feathersjs/express');
+const logger = require('feathers-logger')
+const server = express(feathers());
+const router = require('./modules/users/users.routes')
 
 server.use((req, res, next)=>{
     console.log('request from: ', req.headers.origin)
@@ -16,10 +17,12 @@ server.use((req, res, next)=>{
     next();
 });
 
-server.use(express.json())
-server.use(express.urlencoded({extended: true}));
-server.use(morgan('dev'));
 server.use(express.json());
-server.use('/', routes);
+server.use(express.urlencoded({extended: true}));
+
+server.configure(express.rest());
+server.configure(logger(morgan('tiny')));
+
+router(server)
 
 module.exports = server

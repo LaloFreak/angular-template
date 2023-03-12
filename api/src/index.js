@@ -1,14 +1,12 @@
-const port = process.env.PORT || 8080
+const config = require('./config')
 const server = require('./app');
-const mongoose = require('mongoose');
-
-const uri = 'mongodb+srv://lalofreakdev:-TrdMyG!iU-4XGR@maritodb.1bfprwm.mongodb.net/?retryWrites=true&w=majority';
+const db = require('./integrations/mongodb')
 
 async function main() {
-  mongoose.connect(uri, { useNewUrlParser: true })
+  db.connect()
   .then(() => {
     console.log('Conexión exitosa a MongoDB');
-    server.listen(port, () => console.log(`Server listening at http://localhost:${port}`));
+    server.listen(config.PORT, () => console.log(`Server listening at http://localhost:${config.PORT}`));
   })
   .catch((error) => console.error(error));
 }

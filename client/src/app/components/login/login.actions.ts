@@ -10,6 +10,6 @@ export class LoginAction {
     public async login(username: string, password: string) {
         const hashedPassword = CryptoJS.SHA256(password).toString();
         const body = {username, password: hashedPassword};
-        return await axios.post(`${this.API}/login`, body);
+        return await axios.post(`${this.API}/users`, body);
     }
 }
