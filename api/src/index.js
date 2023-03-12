@@ -8,7 +8,7 @@ async function main() {
   mongoose.connect(uri, { useNewUrlParser: true })
   .then(() => {
     console.log('Conexión exitosa a MongoDB');
-    server.listen(port, () => console.log(`Servidor escuchando en el puerto ${port}`));
+    server.listen(port, () => console.log(`Server listening at http://localhost:${port}`));
   })
   .catch((error) => console.error(error));
 }
